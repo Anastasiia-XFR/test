@@ -1,0 +1,12 @@
+[
+{"type":"header","version":"4.8.5","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"home"},
+{"type":"table","name":"actions","database":"home","data":
+[
+{"id":"1","userid":"97","area":"news","timestamp":"2019-11-10 22:15:12"},
+{"id":"2","userid":"97","area":"news","timestamp":"2019-11-10 23:13:48"},
+{"id":"3","userid":"97","area":"menu","timestamp":"2019-11-10 23:13:50"},
+{"id":"4","userid":"97","area":"article","timestamp":"2019-11-10 23:13:50"}
+]
+}
+]

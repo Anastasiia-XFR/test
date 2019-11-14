@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Home</title>
+</head>
+<style>
+    * {font-family: Calibri, sans-serif; letter-spacing: 1px; margin: 0; padding: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; } .page-menu {background-color: #fc0; padding: 10px; text-align: center; max-width: 650px; margin: 0 auto;} .page-wrap {display: flex; width: 100%; max-width: 650px; margin: 0 auto; background-color: #ffc; min-height: 300px; } .page-article, .page-sidebar {padding: 20px 15px; } .page-sidebar {background-color: #ffa; width: 25%; min-width: 200px; } .page-article {width: 75%; } 
+
+      label {display: block; margin: 10px; } label input {padding: 3px 5px; } label b {display: inline-block; min-width: 100px; } form {max-width: 600px; margin: 30px auto; display: flex; flex-wrap: wrap; } fieldset {padding: 10px; border: 1px solid #aaa; margin-right: -1px; margin-bottom: -1px; } </style>
+<body>
+ <header class="page-header" data-area="nav">
+  <nav class="page-menu">MENU</nav>
+ </header>
+  <main class="page-wrap">
+    <aside class="page-sidebar" data-area="news">
+      NEWS
+    </aside>
+    <article class="page-article" data-area="main">
+      ARTICLE
+    </article>
+    
+  </main>
+
+<script>
+  let userId = document.cookie.replace(/(?:(?:^|.*;\s*)userid\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+
+if (userId === '') {
+    userId = Math.floor(Math.random() * 100).toString();
+    document.cookie = 'userid=' + userId;
+}
+
+//console.log(document.cookie);
+
+const elements = document.querySelectorAll('[data-area]'); //console.log(elements.length);
+
+for(let i = 0; i < elements.length; i++){
+  const element = elements[i];
+  
+  element.addEventListener('click', () => {
+    const area = element.getAttribute('data-area');
+    const url = '/action.php';
+    
+    fetch(url, {
+      method: 'POST',      
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: 'area=' + encodeURIComponent(area),
+    });
+      
+  });
+  
+ 
+}
+
+</script>
+
+</body>
+</html>
